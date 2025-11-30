@@ -24,10 +24,10 @@ Below you will find screenshots of each UI clone.
 
 ## WhatsApp UI (Clone)
 
-| Screen | Screenshot                                        |
-|--------|---------------------------------------------------|
-| Home / Chats | ![WhatsApp Chats](screenshots/chats_screen.png)   |
-| Status Screen | ![WhatsApp Status](screenshots/updates_screen.png) |
-| Calls Screen | ![WhatsApp Calls](screenshots/calls_screen.png)   |
+| Screen | Screenshot                                         |
+|--------|----------------------------------------------------|
+| Home / Chats | ![WhatsApp Chats](screenshots/chats_screen.jpg)    |
+| Status Screen | ![WhatsApp Status](screenshots/updates_screen.jpg) |
+| Calls Screen | ![WhatsApp Calls](screenshots/calls_screen.jpg)    |
 
 
