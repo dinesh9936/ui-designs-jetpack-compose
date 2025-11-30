@@ -9,9 +9,15 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.ramasofts.uidesigninjetpaccompose.R
+import com.ramasofts.uidesigninjetpaccompose.ui.theme.Purple40
+import com.ramasofts.uidesigninjetpaccompose.ui.theme.Purple80
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,13 +27,28 @@ fun WhatsAppTopBar(
     showCamera: Boolean = false,
     showMenu: Boolean = true,
     showSearch: Boolean = false,
-    onShowSearchClicked:()-> Unit = {},
+    onShowSearchClicked: () -> Unit = {},
     onQRClick: () -> Unit = {},
     onCameraClick: () -> Unit = {},
-    onMenuClick: () -> Unit = {}
+    onMenuClick: () -> Unit = {},
+    isChatsScreen: Boolean = false
 ) {
     TopAppBar(
-        title = { Text(title) },
+        title = {
+            if (isChatsScreen){
+                Text(
+                    text = title,
+                    color = Purple80,
+                    fontSize = 25.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }else{
+                Text(
+                    text = title
+                )
+            }
+
+        },
         actions = {
 
             if (showQR) {
@@ -48,7 +69,7 @@ fun WhatsAppTopBar(
                 }
             }
 
-            if (showSearch){
+            if (showSearch) {
                 IconButton(onClick = onShowSearchClicked) {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -71,7 +92,7 @@ fun WhatsAppTopBar(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun ShowPreview(){
+fun ShowPreview() {
     WhatsAppTopBar(
         title = "Updates",
         showQR = false,

@@ -1,6 +1,7 @@
 package com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,11 +21,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ChatItem(name: String, message: String, time: String) {
+fun ChatItem(
+    name: String,
+    message: String,
+    time: String,
+    onChatClicked: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(12.dp)
+            .clickable(
+                enabled = true,
+                onClick = {
+                    onChatClicked.invoke()
+                }
+            )
     ) {
         Box(
             modifier = Modifier
@@ -50,6 +62,7 @@ fun ShowPreviewChatItem(){
     ChatItem(
         name = "Dinesh",
         message = "Hello",
-        time = "12:00"
+        time = "12:00",
+        onChatClicked = {}
     )
 }

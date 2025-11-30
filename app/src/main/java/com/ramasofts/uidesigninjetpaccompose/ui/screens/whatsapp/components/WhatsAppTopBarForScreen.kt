@@ -11,7 +11,8 @@ fun WhatsAppTopBarForScreen(selectedTab: Int) {
             title = "WhatsApp",
             showQR = true,
             showCamera = true,
-            showMenu = true
+            showMenu = true,
+            isChatsScreen = true
         )
 
         1 -> WhatsAppTopBar(

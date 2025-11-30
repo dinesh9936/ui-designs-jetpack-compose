@@ -16,7 +16,10 @@ fun ChatListScreen() {
                 ChatItem(
                     name = "Friend $it",
                     message = "Hello! How are you?",
-                    time = "10:2$it AM"
+                    time = "10:2$it AM",
+                    onChatClicked = {
+
+                    }
                 )
             }
         }
