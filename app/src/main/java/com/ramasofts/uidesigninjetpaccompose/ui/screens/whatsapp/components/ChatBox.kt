@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,6 +18,7 @@ import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Text
@@ -27,15 +29,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ramasofts.uidesigninjetpaccompose.R
+import com.ramasofts.uidesigninjetpaccompose.ui.theme.Purple80
 
 @Composable
 fun ChatBox(
     modifier: Modifier = Modifier
 ) {
     var message by remember { mutableStateOf("") }
+    var isWriting by remember { mutableStateOf(false) }
 
     Row(
         modifier = modifier
@@ -48,21 +55,29 @@ fun ChatBox(
         Row(
             modifier = Modifier
                 .weight(1f)
+                .shadow(
+                    elevation = 2.dp,
+                    shape = RoundedCornerShape(24.dp),
+                    clip = false
+                )
                 .background(
-                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    color = Color.White,
                     shape = RoundedCornerShape(24.dp)
                 )
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .padding(horizontal = 2.dp),
             verticalAlignment = Alignment.CenterVertically
-        ) {
+        )
+        {
             // Emoji icon
-            Icon(
-                imageVector = Icons.Default.Email,
-                contentDescription = "Emoji",
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-
-            Spacer(modifier = Modifier.width(8.dp))
+            IconButton(
+                onClick = {}
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_emoji),
+                    contentDescription = "Emoji",
+                )
+            }
+            
 
             // TextField
             BasicTextField(
@@ -81,51 +96,82 @@ fun ChatBox(
             )
 
             // Attach icon
-            Icon(
-                imageVector = Icons.Default.Add,
-                contentDescription = "Attach",
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            IconButton(
+                onClick = {}
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_add_file),
+                    contentDescription = "Add files",
+                )
+            }
 
-            Spacer(modifier = Modifier.width(8.dp))
-
+            if (!isWriting){
+                IconButton(
+                    onClick = {}
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_rupee),
+                        contentDescription = "Add files",
+                    )
+                }
+            }
             // Camera icon
-            Icon(
-                imageVector = Icons.Default.Add,
-                contentDescription = "Camera",
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+
+            if (!isWriting){
+                IconButton(
+                    onClick = {}
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_camera),
+                        contentDescription = "Add files",
+                    )
+                }
+            }
+            // Camera icon
+
+
         }
 
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(5.dp))
 
         // Right Mic or Send button
         if (message.isEmpty()) {
             // Mic button
             FloatingActionButton(
                 onClick = { },
-                containerColor = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(45.dp),   // 👈 reduce size here
+                containerColor = Purple80,
                 contentColor = Color.White,
                 shape = CircleShape,
-                elevation = FloatingActionButtonDefaults.elevation(0.dp)
+                elevation = FloatingActionButtonDefaults.elevation(2.dp)
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Mic")
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_mic),
+                    contentDescription = "Mic",
+                    modifier = Modifier.size(20.dp)   // 👈 shrink icon
+                )
             }
+            isWriting = false
+
         } else {
+            isWriting = true
             // Send button
             FloatingActionButton(
-                onClick = {
-                    // send message
-                    message = ""
-                },
-                containerColor = MaterialTheme.colorScheme.primary,
+                onClick = { message = "" },
+                modifier = Modifier.size(45.dp),   // 👈 reduce size here
+                containerColor = Purple80,
                 contentColor = Color.White,
                 shape = CircleShape,
-                elevation = FloatingActionButtonDefaults.elevation(0.dp)
+                elevation = FloatingActionButtonDefaults.elevation(2.dp)
             ) {
-                Icon(Icons.Default.Send, contentDescription = "Send")
+                Icon(
+                    imageVector = Icons.Default.Send,
+                    contentDescription = "Send",
+                    modifier = Modifier.size(20.dp)   // 👈 shrink icon
+                )
             }
         }
+
     }
 }
 

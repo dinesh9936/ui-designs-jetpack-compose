@@ -25,9 +25,10 @@ Below you will find screenshots of each UI clone.
 ## WhatsApp UI (Clone)
 
 <p align="left">
-  <img src="screenshots/chats_screen.jpg" alt="Chats Screen" width="230" style="margin-right:10px;" />
-  <img src="screenshots/updates_screen.jpg" alt="Status Screen" width="230" style="margin-right:10px;" />
-  <img src="screenshots/calls_screen.jpg" alt="Calls Screen" width="230" />
+  <img src="screenshots/chats_screen.jpg" alt="Chats Screen" width="100" style="margin-right:10px;" />
+  <img src="screenshots/updates_screen.jpg" alt="Status Screen" width="100" style="margin-right:10px;" />
+  <img src="screenshots/calls_screen.jpg" alt="Calls Screen" width="100" />
+  <img src="screenshots/user_chat_screen.jpg" alt="Calls Screen" width="100" />
 </p>
 
 

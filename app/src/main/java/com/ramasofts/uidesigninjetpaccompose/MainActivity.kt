@@ -11,16 +11,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowInsetsControllerCompat
 import com.ramasofts.uidesigninjetpaccompose.ui.screens.ScreenOne
+import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.AppNavGraph
 import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.screens.WhatsAppUI
 import com.ramasofts.uidesigninjetpaccompose.ui.theme.UIDesignInJetpacComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightNavigationBars = true
+
         setContent {
-            WhatsAppUI()
+            AppNavGraph()
         }
     }
 }

@@ -3,6 +3,7 @@ package com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -13,12 +14,15 @@ import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.Chat
 import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.ChatScreenAppBar
 
 @Composable
-fun ChatScreen(modifier: Modifier = Modifier) {
+fun ChatScreen(
+    chatId: String = "",
+    onBackClicked: () -> Unit
+) {
     Scaffold(
         topBar = {
             ChatScreenAppBar(
                 onTitleClicked = {},
-                onBackClicked = {},
+                onBackClicked = onBackClicked,
                 onAudioCallClicked = {},
                 onVideoCallClicked = {},
                 onMenuClicked = {},
@@ -31,11 +35,11 @@ fun ChatScreen(modifier: Modifier = Modifier) {
                 .fillMaxSize()
         ) {
 
-            // Chat Messages List (Later you will add a LazyColumn here)
             Spacer(modifier = Modifier.weight(1f))
 
-            // ChatBox at bottom
-            ChatBox()
+            ChatBox(
+                modifier = Modifier.imePadding()
+            )
         }
     }
 }
@@ -43,5 +47,8 @@ fun ChatScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ShowChatScreenPreview(){
-    ChatScreen()
+    ChatScreen(
+        "",
+        onBackClicked = {}
+    )
 }

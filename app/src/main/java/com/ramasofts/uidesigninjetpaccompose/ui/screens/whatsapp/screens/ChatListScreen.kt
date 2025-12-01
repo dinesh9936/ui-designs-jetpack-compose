@@ -8,23 +8,25 @@ import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.Chat
 import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.ChatScreenSearchView
 
 @Composable
-fun ChatListScreen() {
+fun ChatListScreen(
+    onChatClicked: (String) -> Unit
+) {
     Column {
         ChatScreenSearchView()
-        LazyColumn {
-            items(15) {
-                ChatItem(
-                    name = "Friend $it",
-                    message = "Hello! How are you?",
-                    time = "10:2$it AM",
-                    onChatClicked = {
 
+        LazyColumn {
+            items(15) { index ->
+                ChatItem(
+                    name = "Friend $index",
+                    message = "Hello!",
+                    time = "10:2$index AM",
+                    onChatClicked = {
+                        onChatClicked(index.toString())
                     }
                 )
             }
         }
     }
-
 }
 
 
@@ -32,5 +34,7 @@ fun ChatListScreen() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ShowPreviewChatList(){
-    ChatListScreen()
+    ChatListScreen(
+        onChatClicked = {}
+    )
 }

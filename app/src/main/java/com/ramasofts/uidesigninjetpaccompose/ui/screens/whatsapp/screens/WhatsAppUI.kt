@@ -14,13 +14,11 @@ import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.What
 import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.WhatsAppTopBarForScreen
 
 @Composable
-fun WhatsAppUI() {
+fun WhatsAppUI(onChatClicked: (String) -> Unit) {
     var selectedTab by remember { mutableIntStateOf(0) }
 
     Scaffold(
-        topBar = { WhatsAppTopBarForScreen(
-            selectedTab = selectedTab
-        ) },
+        topBar = { WhatsAppTopBarForScreen(selectedTab) },
         bottomBar = {
             WhatsAppBottomBar(
                 selectedTab = selectedTab,
@@ -31,7 +29,7 @@ fun WhatsAppUI() {
 
         Column(modifier = Modifier.padding(paddingValues)) {
             when (selectedTab) {
-                0 -> ChatListScreen()
+                0 -> ChatListScreen(onChatClicked = onChatClicked)
                 1 -> StatusScreen()
                 3 -> CallsScreen()
             }
@@ -39,8 +37,11 @@ fun WhatsAppUI() {
     }
 }
 
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewWhatsAppUI() {
-    WhatsAppUI()
+    WhatsAppUI(
+        onChatClicked = {}
+    )
 }
