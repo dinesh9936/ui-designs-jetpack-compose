@@ -29,6 +29,8 @@ Below you will find screenshots of each UI clone.
   <img src="screenshots/updates_screen.jpg" alt="Status Screen" width="100" style="margin-right:10px;" />
   <img src="screenshots/calls_screen.jpg" alt="Calls Screen" width="100" />
   <img src="screenshots/user_chat_screen.jpg" alt="Calls Screen" width="100" />
+  <img src="screenshots/fr_profile_expanded.jpg" alt="Calls Screen" width="100" />
+  <img src="screenshots/fr_profile_collasped.jpg" alt="Calls Screen" width="100" />
 </p>
 
 
