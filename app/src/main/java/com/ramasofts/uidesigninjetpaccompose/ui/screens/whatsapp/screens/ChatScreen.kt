@@ -16,12 +16,15 @@ import com.ramasofts.uidesigninjetpaccompose.ui.screens.whatsapp.components.Chat
 @Composable
 fun ChatScreen(
     chatId: String = "",
-    onBackClicked: () -> Unit
+    onBackClicked: () -> Unit,
+    onTitleClicked:()-> Unit
 ) {
     Scaffold(
         topBar = {
             ChatScreenAppBar(
-                onTitleClicked = {},
+                onTitleClicked = {
+                    onTitleClicked.invoke()
+                },
                 onBackClicked = onBackClicked,
                 onAudioCallClicked = {},
                 onVideoCallClicked = {},
@@ -49,6 +52,7 @@ fun ChatScreen(
 fun ShowChatScreenPreview(){
     ChatScreen(
         "",
-        onBackClicked = {}
+        onBackClicked = {},
+        onTitleClicked = {}
     )
 }

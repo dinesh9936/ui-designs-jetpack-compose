@@ -30,13 +30,15 @@ fun ChatItem(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(12.dp)
             .clickable(
                 enabled = true,
                 onClick = {
                     onChatClicked.invoke()
                 }
             )
+            .background(Color.White)
+            .padding(12.dp)
+
     ) {
         Box(
             modifier = Modifier
